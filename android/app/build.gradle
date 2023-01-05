@@ -57,3 +57,7 @@ android {
 flutter {
     source '../..'
 }
+
+dependencies {
+    implementation project(':flutter_boost')
+}
