@@ -17,32 +17,8 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static Map<String, FlutterBoostRouteFactory> routerMap = {
-    '/main': (RouteSettings settings, String? uniqueId) {
-      return CupertinoPageRoute(
-          settings: settings,
-          builder: (_) {
-            return MyHomePage(title: 'Flutter Demo Home Page');
-          });
-    },
-    '/': (RouteSettings settings, String? uniqueId) {
-      return CupertinoPageRoute(
-          settings: settings,
-          builder: (_) {
-            return MyHomePage(title: 'Flutter Demo Home Page');
-          });
-    },
-    '/login': (settings, uniqueId) {
-      return CupertinoPageRoute(
-          settings: settings,
-          builder: (_) {
-            return MyHomePage(title: 'Flutter Demo Home Page');
-          });
-    },
-  };
-
   static Route<dynamic>? routeFactory(RouteSettings settings, String? uniqueId) {
-    FlutterBoostRouteFactory? func = routerMap[settings.name];
+    FlutterBoostRouteFactory? func = Routes.routerMap[settings.name];
     if (func != null) {
       return func(settings, uniqueId);
     }
@@ -53,7 +29,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: home,
       debugShowCheckedModeBanner: true,
-
       ///必须加上builder参数，否则showDialog等会出问题
       builder: (_, __) {
         return home;

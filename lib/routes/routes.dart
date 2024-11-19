@@ -1,10 +1,14 @@
+import 'package:flutter_application/pages/custom.dart';
 import 'package:flutter_application/pages/home.dart';
+import 'package:flutter_application/pages/list.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
   /// 主页面
   static String root = '/';
+  static String main = '/main';
+
 
   /// 启动页面 （ 显示隐私政策的弹框，不同意则无法进入app ）
   static String launch = '/launch';
@@ -14,6 +18,12 @@ class Routes {
 
   /// 登录页面
   static String login = '/login';
+
+  /// 列表页面
+  static String list = '/list';
+
+  /// 自定义组件
+  static String custom = '/custom';
 
   /// arguments 示例 { "showType": 0, "title": "导航栏标题" }
   /// [showType] 0-3 代表显示的车辆类型 0 全部 1 行驶中 2 停止 3 离线
@@ -42,11 +52,32 @@ class Routes {
             return const MyHomePage(title: 'title');
           });
     },
+    main: (RouteSettings settings, String? uniqueId) {
+      return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            return const MyHomePage(title: 'title');
+          });
+    },
     login: (RouteSettings settings, String? uniqueId) {
       return MaterialPageRoute(
           settings: settings,
           builder: (_) {
             return const MyHomePage(title: 'title');
+          });
+    },
+    list: (RouteSettings settings, String? uniqueId) {
+      return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            return const ListPage();
+          });
+    },
+    custom: (RouteSettings settings, String? uniqueId) {
+      return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            return const CustomPage();
           });
     },
     vehicleList: (RouteSettings settings, String? uniqueId) {
